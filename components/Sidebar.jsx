@@ -9,26 +9,25 @@ const Sidebar = () => {
     // TODO https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
     // getting a TreeNode
-    const renderTreeNodes = (nodes, intend = 0) => {
+    const renderTreeNode = (node, intend = 0) => {
 
-        let content = nodes?.map(e => {
-            const hasChildren = e[1] && e[1].children;
+        const hasChildren = node && node.children && node.children.length > 0;
 
-            if (hasChildren) {
-                return <TreeItem intend={intend + 1} label={e[0]}>
-                    {renderTreeNodes(e[1].children, intend + 1)}
-                </TreeItem>
-            } else {
-                return <TreeItem intend={intend} label={e[0]} />
-            }
-        })
-        return content;
+        if (hasChildren) {
+            console.log('WOOT', node.children)
+            const innerEl = node.children.map(child => renderTreeNode(child, intend + 1))
+            return <TreeItem intend={intend} label={node.value}>
+                {innerEl}
+            </TreeItem>
+        } else {
+            return <TreeItem intend={intend} label={node.value} />
+        }
     }
 
-    const el = renderTreeNodes(treeNodes);
+    const el = treeNodes?.map(node => renderTreeNode(node))
 
+    console.log('EL!', el)
     return <>
-
         {el}
     </>
 }

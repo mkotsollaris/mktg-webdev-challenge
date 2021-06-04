@@ -5,7 +5,7 @@ import AppContext from './AppContext';
 const AppProvider = ({ children, people, departments }) => {
 
     const treeNodes = convertDepartmentsToTreeNode(departments)
-
+    console.log('treeNodes!', treeNodes)
     return <AppContext.Provider value={{
         treeNodes
     }} >
