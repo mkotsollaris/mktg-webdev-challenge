@@ -1,11 +1,11 @@
 import React from 'react';
-import convertDepartmentsToTreeNode from '../utils/convertDepartmentsToTreeNodesArray';
+import { convertInputToTreeNodesArray } from '../utils/TreeNode';
 import AppContext from './AppContext';
 
 const AppProvider = ({ children, people, departments }) => {
 
-    const treeNodes = convertDepartmentsToTreeNode(departments)
-    console.log('treeNodes!', treeNodes)
+    const treeNodes = convertInputToTreeNodesArray(departments)
+
     return <AppContext.Provider value={{
         treeNodes
     }} >

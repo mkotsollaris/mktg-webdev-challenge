@@ -15,9 +15,8 @@ const TreeView = () => {
             return <TreeItem key={node.attributes.id} intend={intend} label={node.value}>
                 {innerEl}
             </TreeItem>
-        } else {
-            return <TreeItem key={node.attributes.id} intend={intend} label={node.value} />
         }
+        return <TreeItem key={node.attributes.id} intend={intend} label={node.value} />
     }
 
     const content = treeNodes?.map(node => renderTreeNode(node))
