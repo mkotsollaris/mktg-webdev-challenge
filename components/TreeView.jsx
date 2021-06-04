@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
 import TreeItem from "./TreeItem";
+import style from './style.module.css'
 
 const TreeView = () => {
 
@@ -21,9 +22,9 @@ const TreeView = () => {
 
     const content = treeNodes?.map(node => renderTreeNode(node))
 
-    return <>
+    return <div className={style.treeview}>
         {content}
-    </>
+    </div>
 }
 
 export default TreeView;

@@ -1,22 +1,35 @@
-import style from './style.module.css'
-import query from './query.graphql'
+import FilterTree from '../../components/TreeView';
+import AppProvider from '../../context/AppProvider';
 import rivetQuery from '@hashicorp/nextjs-scripts/dato/client'
+import query from './query.graphql'
+import PeopleGrid from '../../components/PeopleGrid';
+// load from current dir
+import style from '../../components/style.module.css'
+import Top from '../../components/Top';
 
-function PeoplePage({ allPeople, allDepartments }) {
-  return (
-    <>
-      <pre className={style.myData}>{JSON.stringify(allPeople, null, 2)}</pre>
-      <pre className={style.myData}>
-        {JSON.stringify(allDepartments, null, 2)}
-      </pre>
-    </>
-  )
+const Directory = ({ allPeople, allDepartments }) => {
+    return (
+        <div className="g-container">
+            <AppProvider allPeople={allPeople} departments={allDepartments}>
+                <Top />
+                <div className={style['two-column-grid']}>
+                    <div>
+                        <FilterTree />
+                    </div>
+                    <div>
+                        <PeopleGrid />
+                    </div>
+
+                </div>
+            </AppProvider>
+        </div>
+    )
 }
 
 export async function getStaticProps() {
-  const data = await rivetQuery({ query })
-  return { props: data }
+    const data = await rivetQuery({ query })
+    return { props: data }
 }
 
-PeoplePage.layout = true
-export default PeoplePage
+Directory.layout = true
+export default Directory;
