@@ -5,14 +5,14 @@ const convertDepartmentsToTreeNodesArray = (departments) => {
     const root = [];
 
     departments.forEach(element => {
-        let node = new TreeNode(element.name);
+        let node = new TreeNode(element.name, [], { id: element.id });
         if (element.parent) {
 
             let parentNode = map.get(element.parent.name);
             if (parentNode) {
                 parentNode.children.push(node)
             } else {
-                map.set(element.parent.name, [new TreeNode(element.parent.name, [node])])
+                map.set(element.parent.name, [new TreeNode(element.parent.name, [node], { id: element.parent.id })])
                 map.set(element.name, node)
             }
         } else {

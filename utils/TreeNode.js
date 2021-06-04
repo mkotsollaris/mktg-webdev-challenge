@@ -1,7 +1,9 @@
 class TreeNode {
-    constructor(value, children = []) {
-        this.value = value;
-        this.children = children;
+    //TODO ADD id for key attr
+    constructor(value, children = [], attributes) {
+        this.value = value
+        this.children = children
+        this.attributes = attributes
     }
 }
 

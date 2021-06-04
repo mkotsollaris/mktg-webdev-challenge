@@ -1,4 +1,4 @@
-import FilterTree from '../../components/Sidebar';
+import FilterTree from '../../components/TreeView';
 import Search from '../../components/Search';
 import SubTitle from '../../components/SubTitle';
 import Title from '../../components/Title';
