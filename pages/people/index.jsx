@@ -19,5 +19,4 @@ export async function getStaticProps() {
 }
 
 PeoplePage.layout = true
-
 export default PeoplePage

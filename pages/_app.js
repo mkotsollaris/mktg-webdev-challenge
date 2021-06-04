@@ -9,7 +9,9 @@ import Layout from '../layouts/hashicorp'
 NProgress({ Router })
 
 function App({ Component, pageProps }) {
+
   const AppLayout = Component.layout ? Layout : React.Fragment
+
   return (
     <AppLayout>
       <Component {...pageProps} />
