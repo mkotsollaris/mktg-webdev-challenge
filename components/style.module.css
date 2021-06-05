@@ -1,3 +1,20 @@
+.top-label-grid {
+  margin-bottom: 1rem;
+}
+
+.large-span {
+  font-size: 3rem;
+  font-weight: 100;
+  margin: 1rem;
+}
+
+.medium-span {
+  font-size: medium;
+  font-weight: lighter;
+  color: darkslategray;
+  margin-bottom: 1rem;
+}
+
 .no-results-found {
   text-align: center;
 }
@@ -10,7 +27,7 @@
 
 .top {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -20,8 +37,8 @@
 .people {
   display: grid;
   grid-template-columns: 28% 28% 28%;
-  grid-column-gap: 2%;
-  grid-row-gap: 2%;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
   align-content: center;
   justify-content: center;
   padding: 2rem;
@@ -75,12 +92,18 @@
 
 .treeItem {
   cursor: pointer;
+  color: darkslategray;
   &.selected {
     color: dodgerblue;
   }
 }
 
+.light {
+  color: darkslategray;
+}
+
 .search-grid {
+  margin-bottom: 1rem;
   display: grid;
   border: 1px solid gray;
   grid-template-columns: 2rem 30rem;
@@ -89,10 +112,9 @@
   align-content: center;
   align-items: center;
   padding: 0.5rem;
-
-& :focus {
-  outline: none;
-}
+  & :focus {
+    outline: none;
+  }
 }
 
 .search-icon {
@@ -139,8 +161,8 @@
 
 .checkbox {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 1.5rem;
+  height: 1.2rem;
   background: 'salmon';
   border-radius: 3px;
   transition: all 150ms;

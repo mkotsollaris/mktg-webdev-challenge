@@ -21,13 +21,14 @@ const TreeItem = ({ label, intend, children }) => {
   const Icon = !children ? (
     <div />
   ) : isExpanded ? (
-    <CollapseIcon style={{ color: 'gray', fontSize: 20}} />
+    <CollapseIcon style={{ color: 'gray', fontSize: 20 }} />
   ) : (
-    <ExpandIcon style={{ color: 'gray', fontSize: 20}}/>
+    <ExpandIcon style={{ color: 'gray', fontSize: 20 }} />
   )
   const classNames = filteredDepartments.includes(label)
     ? `${style.treeItem} ${style.selected}`
     : style.treeItem
+
   const element = (
     <div className={style.treeItem} style={{ textIndent: `${cssIntend}px` }}>
       <div
