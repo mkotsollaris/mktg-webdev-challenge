@@ -1,5 +1,5 @@
 import Search from './Search'
-import Checkbox from './CheckBox'
+import Checkbox from './Checkbox'
 import style from './style.module.css'
 
 const Top = () => {
