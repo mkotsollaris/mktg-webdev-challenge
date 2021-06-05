@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { convertInputToTreeNodesArray } from '../utils/TreeNode'
 import AppContext from './AppContext'
 
@@ -6,24 +6,32 @@ const AppProvider = ({ children, allPeople, departments }) => {
   const [filteredDepartments, setFilteredDepartments] = useState([])
   const treeNodes = convertInputToTreeNodesArray(departments)
   const [people, setPeople] = useState(allPeople)
+  const [searchValue, setSearchValue] = useState();
 
-  const getPeopleFilteredByDepartment = () => {
-    if (filteredDepartments.length === 0) {
+  useEffect(() => {
+    const newPeople = updatePeopleByDepartmentFilter()
+    const peopleFilteredBySearchValue = updatePeopleBySearchValue(newPeople)
+    setPeople(peopleFilteredBySearchValue)
+  }, [filteredDepartments, searchValue])
+
+  const updatePeopleByDepartmentFilter = () => {
+    if (filteredDepartments.length !== 0) {
+      const newPeople = allPeople.filter((person) =>
+        filteredDepartments.includes(person.department.name)
+      );
+      return newPeople
+    } else {
       return allPeople
     }
-    return allPeople.filter((person) =>
-      filteredDepartments.includes(person.department.name)
-    )
+  }
+  const updatePeopleBySearchValue = (peopleInput) => {
+    if (!searchValue) {
+      return peopleInput
+    }
+    return peopleInput.filter((person) => person.name.toLowerCase().startsWith(searchValue));
   }
 
-  const onSearchChange = (value) => {
-    const newPeople = getPeopleFilteredByDepartment().filter((person) =>
-      person.name.toLowerCase().startsWith(value)
-    )
-    setPeople(newPeople)
-  }
-
-  // DFS to compute highlighted nodes
+  // DFS to compute the nodes that should be highlighted
   let dfs = (searchLabel, node, currPath = []) => {
     if (node.value === searchLabel) {
       return [...currPath, searchLabel]
@@ -51,12 +59,13 @@ const AppProvider = ({ children, allPeople, departments }) => {
   return (
     <AppContext.Provider
       value={{
+        searchValue,
+        setSearchValue,
         people,
         treeNodes,
         filteredDepartments,
         setFilteredDepartments,
         computeFilteredDepartments,
-        onSearchChange,
       }}
     >
       {children}

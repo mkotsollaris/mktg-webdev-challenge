@@ -15,7 +15,7 @@ query {
     }
   }
 
-  allPeople(first: 20) {
+  allPeople(first: 100) {
     id
     name
     title
