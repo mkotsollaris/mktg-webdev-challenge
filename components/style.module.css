@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: 28% 28% 28%;
   grid-column-gap: 2%;
-  grid-row-gap: 1%;
+  grid-row-gap: 2%;
   align-content: center;
   justify-content: center;
   padding: 2rem;
@@ -89,10 +89,10 @@
   align-content: center;
   align-items: center;
   padding: 0.5rem;
-}
 
-.search-grid :focus {
+& :focus {
   outline: none;
+}
 }
 
 .search-icon {
@@ -120,4 +120,40 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 3%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.checkbox-main-grid {
+  justify-items: center;
+  align-items: center;
+  display: grid;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: 'salmon';
+  border-radius: 3px;
+  transition: all 150ms;
+}
+
+.hidden-checkbox {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

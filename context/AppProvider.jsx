@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { convertInputToTreeNodesArray } from '../utils/TreeNode'
 import AppContext from './AppContext'
+import KMPSearch from '../utils/knuthMorrisPratt'
 
 const AppProvider = ({ children, allPeople, departments }) => {
   const [filteredDepartments, setFilteredDepartments] = useState([])
   const treeNodes = convertInputToTreeNodesArray(departments)
   const [people, setPeople] = useState(allPeople)
-  const [searchValue, setSearchValue] = useState();
+  const [searchValue, setSearchValue] = useState()
+  const [hideWithMissingProfileImg, setHideWithMissingProfileImg] = useState(
+    false
+  )
 
   useEffect(() => {
     const newPeople = updatePeopleByDepartmentFilter()
     const peopleFilteredBySearchValue = updatePeopleBySearchValue(newPeople)
-    setPeople(peopleFilteredBySearchValue)
-  }, [filteredDepartments, searchValue])
+    const peopleFilteredByMissingProfile = updatePeopleByMissingProfileImg(
+      peopleFilteredBySearchValue
+    )
+    setPeople(peopleFilteredByMissingProfile)
+  }, [filteredDepartments, searchValue, hideWithMissingProfileImg])
 
   const updatePeopleByDepartmentFilter = () => {
     if (filteredDepartments.length !== 0) {
       const newPeople = allPeople.filter((person) =>
         filteredDepartments.includes(person.department.name)
-      );
+      )
       return newPeople
     } else {
       return allPeople
@@ -28,11 +35,21 @@ const AppProvider = ({ children, allPeople, departments }) => {
     if (!searchValue) {
       return peopleInput
     }
-    return peopleInput.filter((person) => person.name.toLowerCase().startsWith(searchValue));
+    return peopleInput.filter(
+      (person) =>
+        KMPSearch(person.name.toLowerCase(), searchValue.toLowerCase()) !== -1
+    )
+  }
+
+  const updatePeopleByMissingProfileImg = (peopleInput) => {
+    if (!hideWithMissingProfileImg) {
+      return peopleInput
+    }
+    return peopleInput.filter((person) => person?.avatar?.url)
   }
 
   // DFS to compute the nodes that should be highlighted
-  let dfs = (searchLabel, node, currPath = []) => {
+  const dfs = (searchLabel, node, currPath = []) => {
     if (node.value === searchLabel) {
       return [...currPath, searchLabel]
     }
@@ -44,7 +61,7 @@ const AppProvider = ({ children, allPeople, departments }) => {
     }
   }
 
-  let computeFilteredDepartments = (label) => {
+  const computeFilteredDepartments = (label) => {
     let treeItems = []
     for (let node of treeNodes) {
       treeItems = dfs(label, node, [])
@@ -66,6 +83,8 @@ const AppProvider = ({ children, allPeople, departments }) => {
         filteredDepartments,
         setFilteredDepartments,
         computeFilteredDepartments,
+        hideWithMissingProfileImg,
+        setHideWithMissingProfileImg,
       }}
     >
       {children}

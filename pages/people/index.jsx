@@ -3,7 +3,6 @@ import AppProvider from '../../context/AppProvider'
 import rivetQuery from '@hashicorp/nextjs-scripts/dato/client'
 import query from './query.graphql'
 import PeopleGrid from '../../components/PeopleGrid'
-// load from current dir
 import style from '../../components/style.module.css'
 import Top from '../../components/Top'
 
