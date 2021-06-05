@@ -8,11 +8,14 @@
   margin: 1rem;
 }
 
+.margin-bottom-sm {
+  margin-bottom: 1rem;
+}
+
 .medium-span {
   font-size: medium;
   font-weight: lighter;
   color: darkslategray;
-  margin-bottom: 1rem;
 }
 
 .no-results-found {
@@ -22,16 +25,17 @@
 .two-column-grid {
   display: grid;
   grid-template-columns: 15% 85%;
-  margin-bottom: 15rem;
+  margin-bottom: 2rem;
 }
 
 .top {
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: grid;
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .people {
@@ -76,13 +80,16 @@
 .treeView {
   width: 15rem;
   display: grid;
-  grid-row-gap: 3%;
+  grid-row-gap: 0.5rem;
+
+  /* grid-row-gap: 3%; */
 }
 
 .expandableTreeItem {
   display: grid;
   grid-template-columns: 10% 90%;
-  grid-row-gap: 3%;
+
+  /* grid-row-gap: 3%; */
 }
 
 .clickable {
@@ -99,13 +106,25 @@
   }
 }
 
+.ul {
+  margin-left: 1.5rem;
+  padding-inline-start: 1rem;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  border-left: 1px solid lightgray;
+  padding: 0;
+
+& li {
+  list-style: none;
+}
+}
+
 .light {
   color: darkslategray;
   font-size: 0.8rem;
 }
 
 .search-grid {
-  margin-bottom: 1rem;
   display: grid;
   border: 1px solid gray;
   grid-template-columns: 2rem 30rem;
@@ -117,6 +136,10 @@
   & :focus {
     outline: none;
   }
+
+&:nth-child(3) {
+  margin-bottom: 1rem;
+}
 }
 
 .search-icon {

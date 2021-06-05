@@ -4,7 +4,12 @@ import CollapseIcon from '@material-ui/icons/ExpandMore'
 import style from './style.module.css'
 import AppContext from '../context/AppContext'
 
-const TreeItem = ({ label, intend, children }) => {
+const ExpandIconElement = <ExpandIcon style={{ color: 'gray', fontSize: 20 }} />
+const CollapseIconElement = (
+  <CollapseIcon style={{ color: 'gray', fontSize: 20 }} />
+)
+
+const TreeItem = ({ label, children }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const { filteredDepartments, computeFilteredDepartments } = useContext(
     AppContext
@@ -17,20 +22,19 @@ const TreeItem = ({ label, intend, children }) => {
     setIsExpanded(!isExpanded)
   }
 
-  let cssIntend = intend * 30
   const Icon = !children ? (
     <div />
   ) : isExpanded ? (
-    <CollapseIcon style={{ color: 'gray', fontSize: 20 }} />
+    CollapseIconElement
   ) : (
-    <ExpandIcon style={{ color: 'gray', fontSize: 20 }} />
+    ExpandIconElement
   )
   const classNames = filteredDepartments.includes(label)
     ? `${style.treeItem} ${style.selected}`
     : style.treeItem
 
   const element = (
-    <div className={style.treeItem} style={{ textIndent: `${cssIntend}px` }}>
+    <div className={`${style.treeItem} ${style['non-selectable']}`}>
       <div
         onClick={onClick}
         className={`${style.expandableTreeItem} ${classNames}`}
@@ -38,7 +42,7 @@ const TreeItem = ({ label, intend, children }) => {
         {Icon}
         {label}
       </div>
-      {isExpanded ? children : null}
+      {isExpanded ? <ul className={style.ul}>{children}</ul> : null}
     </div>
   )
 

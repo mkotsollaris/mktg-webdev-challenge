@@ -6,11 +6,15 @@ const Top = () => {
   return (
     <div className={style.top}>
       <h1 className={style['large-span']}>Hashicorp Humans</h1>
-      <span className={style['medium-span']}>Find a HashiCorp human</span>
+      <span className={`${style['medium-span']} ${style['margin-bottom-sm']}`}>
+        Find a HashiCorp human
+      </span>
       <Search />
       <div className={style['checkbox-grid']}>
         <Checkbox />
-        <span>Hide people missing a profile image</span>
+        <span className={style['medium-span']}>
+          Hide people missing a profile image
+        </span>
       </div>
     </div>
   )

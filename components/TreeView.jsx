@@ -8,27 +8,18 @@ const TreeView = () => {
     AppContext
   )
 
-  const renderTreeNode = (node, intend = 0) => {
+  const renderTreeNode = (node) => {
     const hasChildren = node && node.children && node.children.length > 0
 
     if (hasChildren) {
-      const innerEl = node.children.map((child) =>
-        renderTreeNode(child, intend + 1)
-      )
+      const innerEl = node.children.map((child) => renderTreeNode(child))
       return (
-        <TreeItem
-          key={node.attributes.id}
-          intend={intend}
-          label={node.value}
-          node={node}
-        >
+        <TreeItem key={node.attributes.id} label={node.value} node={node}>
           {innerEl}
         </TreeItem>
       )
     }
-    return (
-      <TreeItem key={node.attributes.id} intend={intend} label={node.value} />
-    )
+    return <TreeItem key={node.attributes.id} label={node.value} />
   }
 
   const content = treeNodes?.map((node) => renderTreeNode(node))
