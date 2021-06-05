@@ -52,6 +52,7 @@
 }
 
 .name {
+  font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem;
 }
@@ -67,8 +68,8 @@
 
 .avatar {
   vertical-align: middle;
-  width: 10rem;
-  height: 10rem;
+  width: 7rem;
+  height: 7rem;
   border-radius: 50%;
 }
 
@@ -100,6 +101,7 @@
 
 .light {
   color: darkslategray;
+  font-size: 0.8rem;
 }
 
 .search-grid {
