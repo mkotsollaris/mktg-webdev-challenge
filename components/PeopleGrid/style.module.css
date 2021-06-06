@@ -1,13 +1,15 @@
 .people {
   display: grid;
+  align-content: center;
+  justify-content: center;
   grid-template-columns: 28% 28% 28%;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  align-content: center;
-  justify-content: center;
   padding: 2rem;
 }
 
 .no-results-found {
   text-align: center;
+  color: darkslategray;
+  font-size: small;
 }

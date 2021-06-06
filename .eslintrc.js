@@ -3,7 +3,9 @@ module.exports = {
   ...eslintConfig,
   /* Specify overrides here */
   /* For reference: https://github.com/hashicorp/nextjs-scripts/blob/master/config/.eslintrc.js */
-  "env": {
-    "jest": true
-  }
+  env: {
+    jest: true,
+    es6: true,
+    node: true,
+  },
 }

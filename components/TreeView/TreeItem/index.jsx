@@ -1,14 +1,18 @@
 import { useContext, useState } from 'react'
-import ExpandIcon from '@material-ui/icons/ChevronRight'
-import CollapseIcon from '@material-ui/icons/ExpandMore'
+import ArrowIcon from '../../../public/img/arrow.svg'
 import style from './style.module.css'
-// Todo consider loading through css?
 import componentsStyle from '../../style.module.css'
 import AppContext from '../../../context/AppContext'
 
-const ExpandIconElement = <ExpandIcon style={{ color: 'gray', fontSize: 20 }} />
+const ExpandIconElement = (
+  <img alt="expand" className={style.arrow} src={ArrowIcon} />
+)
 const CollapseIconElement = (
-  <CollapseIcon style={{ color: 'gray', fontSize: 20 }} />
+  <img
+    alt="collapse"
+    className={`${style['rotate-90']} ${style.arrow}`}
+    src={ArrowIcon}
+  />
 )
 
 const TreeItem = ({ label, children }) => {
@@ -27,10 +31,11 @@ const TreeItem = ({ label, children }) => {
   const Icon = !children ? (
     <div />
   ) : isExpanded ? (
-    CollapseIconElement
+    <div>{CollapseIconElement}</div>
   ) : (
-    ExpandIconElement
+    <div>{ExpandIconElement}</div>
   )
+
   const classNames = filteredDepartments.includes(label)
     ? `${style.treeItem} ${style.selected}`
     : style.treeItem
@@ -39,7 +44,7 @@ const TreeItem = ({ label, children }) => {
     <div className={`${style.treeItem} ${componentsStyle['non-selectable']}`}>
       <div
         onClick={onClick}
-        className={`${style.expandableTreeItem} ${classNames}`}
+        className={`${style.expandableTreeItem} ${classNames} `}
       >
         {Icon}
         {label}

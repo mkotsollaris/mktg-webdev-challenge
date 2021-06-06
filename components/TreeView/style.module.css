@@ -1,6 +1,6 @@
 .treeView {
-  width: 15rem;
   display: grid;
+  width: 15rem;
   grid-row-gap: 0.5rem;
 }
 
@@ -11,4 +11,8 @@
 
 .clickable {
   cursor: pointer;
+}
+
+.margin-left-sm {
+  margin-left: 0.5rem;
 }

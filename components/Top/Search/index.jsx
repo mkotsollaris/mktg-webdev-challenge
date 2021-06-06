@@ -8,14 +8,14 @@ const Search = () => {
 
   return (
     <>
-      <div className={style['search-grid']}>
+      <div role="search" className={style['search-grid']}>
         <div className={style['search-icon']}>
           <img src={searchIconSrc} alt="search" />
         </div>
         <div>
           <input
             onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
-            type="text"
+            type="search"
             placeholder="Search people by name"
           />
         </div>

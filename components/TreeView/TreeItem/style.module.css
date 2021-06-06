@@ -1,5 +1,7 @@
 .expandableTreeItem {
   display: grid;
+  align-content: center;
+  justify-content: center;
   grid-template-columns: 10% 90%;
 }
 
@@ -21,4 +23,12 @@
   & li {
     list-style: none;
   }
+}
+
+.arrow {
+  margin-bottom: 0.1rem;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
 }
