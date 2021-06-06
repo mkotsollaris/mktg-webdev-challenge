@@ -4,6 +4,7 @@ import AppContext from './AppContext'
 import KMPSearch from '../utils/knuthMorrisPratt'
 
 const AppProvider = ({ children, allPeople, departments }) => {
+  const [expanded, setExpanded] = useState([])
   const [filteredDepartments, setFilteredDepartments] = useState([])
   const treeNodes = convertInputToArray(departments)
   const [people, setPeople] = useState(allPeople)
@@ -85,6 +86,8 @@ const AppProvider = ({ children, allPeople, departments }) => {
         computeFilteredDepartments,
         hideWithMissingProfileImg,
         setHideWithMissingProfileImg,
+        expanded,
+        setExpanded,
       }}
     >
       {children}

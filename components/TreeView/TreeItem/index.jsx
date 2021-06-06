@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import ArrowIcon from '../../../public/img/arrow.svg'
 import style from './style.module.css'
 import componentsStyle from '../../style.module.css'
@@ -16,21 +16,31 @@ const CollapseIconElement = (
 )
 
 const TreeItem = ({ label, children }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const { filteredDepartments, computeFilteredDepartments } = useContext(
-    AppContext
-  )
+  const {
+    filteredDepartments,
+    computeFilteredDepartments,
+    expanded,
+    setExpanded,
+  } = useContext(AppContext)
+
+  const isExpanded = () => {
+    return expanded.includes(label)
+  }
 
   const onClick = () => {
     if (!children) {
       computeFilteredDepartments(label)
     }
-    setIsExpanded(!isExpanded)
+    if (isExpanded()) {
+      setExpanded(expanded.filter((e) => e !== label))
+    } else {
+      setExpanded([...expanded, label])
+    }
   }
 
   const Icon = !children ? (
     <div />
-  ) : isExpanded ? (
+  ) : isExpanded() ? (
     <div>{CollapseIconElement}</div>
   ) : (
     <div>{ExpandIconElement}</div>
@@ -50,10 +60,9 @@ const TreeItem = ({ label, children }) => {
         {Icon}
         {label}
       </div>
-      {isExpanded ? <ul className={style.ul}>{children}</ul> : null}
+      {isExpanded() ? <ul className={style.ul}>{children}</ul> : null}
     </div>
   )
-
   return element
 }
 
