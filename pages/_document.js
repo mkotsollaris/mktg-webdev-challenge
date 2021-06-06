@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <link rel="icon" href="/img/favicon.ico" />
           <link rel="stylesheet" type="text/css" href="/css/nprogress.css" />
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"

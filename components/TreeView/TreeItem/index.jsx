@@ -43,6 +43,7 @@ const TreeItem = ({ label, children }) => {
   const element = (
     <div className={`${style.treeItem} ${componentsStyle['non-selectable']}`}>
       <div
+        role="button"
         onClick={onClick}
         className={`${style.expandableTreeItem} ${classNames} `}
       >
