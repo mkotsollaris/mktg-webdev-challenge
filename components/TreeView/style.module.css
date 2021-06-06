@@ -3,16 +3,3 @@
   width: 15rem;
   grid-row-gap: 0.5rem;
 }
-
-.secondary-label {
-  color: gray;
-  font-size: small;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-.margin-left-sm {
-  margin-left: 0.5rem;
-}

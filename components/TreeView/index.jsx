@@ -4,11 +4,10 @@ import TreeItem from './TreeItem'
 import componentStyle from '../style.module.css'
 
 import style from './style.module.css'
+import ClearFilter from '../ClearFilter'
 
 const TreeView = () => {
-  const { treeNodes, filteredDepartments, setFilteredDepartments } = useContext(
-    AppContext
-  )
+  const { treeNodes, filteredDepartments } = useContext(AppContext)
 
   const renderTreeNode = (node) => {
     const hasChildren = node && node.children && node.children.length > 0
@@ -28,18 +27,12 @@ const TreeView = () => {
 
   return (
     <div className={style.treeView}>
-      <span className={`${componentStyle.name} ${style['margin-left-sm']}`}>
+      <span
+        className={`${componentStyle.name} ${componentStyle['margin-left-sm']}`}
+      >
         Filter by department
       </span>
-      {filteredDepartments.length === 0 ? null : (
-        <span
-          role="button"
-          className={`${style['secondary-label']} ${style.clickable} ${style['margin-left-sm']}`}
-          onClick={() => setFilteredDepartments([])}
-        >
-          clear filters
-        </span>
-      )}
+      {filteredDepartments.length === 0 ? null : <ClearFilter />}
       {content}
     </div>
   )

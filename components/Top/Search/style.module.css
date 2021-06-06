@@ -1,7 +1,7 @@
 .search-grid {
   display: grid;
   border: 1px solid gray;
-  grid-template-columns: 2rem 30rem;
+  grid-template-columns: 2rem 20rem;
   border-radius: 2rem;
   justify-content: center;
   align-content: center;
@@ -12,6 +12,10 @@
   }
   &:nth-child(3) {
     margin-bottom: 1rem;
+  }
+  @media (max-width: 400px) {
+    composes: search-grid;
+    grid-template-columns: 100%;
   }
 }
 

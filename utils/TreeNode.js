@@ -47,6 +47,7 @@ const convertInputToArray = (departments) => {
     }
     return -1
   })
+
   root.forEach((node) => sortNodeChildren(node))
 
   return root

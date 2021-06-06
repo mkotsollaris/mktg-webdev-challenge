@@ -12,3 +12,16 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.secondary-label {
+  color: gray;
+  font-size: small;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.margin-left-sm {
+  margin-left: 0.5rem;
+}
