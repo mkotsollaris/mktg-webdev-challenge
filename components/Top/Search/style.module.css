@@ -1,9 +1,8 @@
 .search-grid {
   display: grid;
   border: 1px solid gray;
-  grid-template-columns: 2rem 20rem;
+  grid-template-columns: 2rem auto;
   border-radius: 2rem;
-  justify-content: center;
   align-content: center;
   align-items: center;
   padding: 0.5rem;
