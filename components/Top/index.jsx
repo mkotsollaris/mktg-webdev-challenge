@@ -3,11 +3,11 @@ import Checkbox from './Checkbox'
 import style from './style.module.css'
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
-import isSmallScreen from '../../utils/hooks/isSmallScreen'
 import ClearFilter from '../ClearFilter'
+import { useMediaQuery } from '@material-ui/core'
 
 const Top = () => {
-  const smallScreen = isSmallScreen()
+  let isPageSmall = useMediaQuery('(max-width: 960px)')
 
   const {
     hideWithMissingProfileImg,
@@ -16,7 +16,7 @@ const Top = () => {
   } = useContext(AppContext)
 
   const content =
-    smallScreen && filteredDepartments.length > 0 ? (
+    isPageSmall && filteredDepartments.length > 0 ? (
       <>
         <div
           className={`${style['bottom-grid']} ${style['three-column-grid']} `}

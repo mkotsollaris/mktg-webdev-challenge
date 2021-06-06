@@ -5,30 +5,24 @@ import Top from '../../components/Top'
 import TreeView from '../../components/TreeView'
 import PeopleGrid from '../../components/PeopleGrid'
 import style from './style.module.css'
-import isSmallScreen from '../../utils/hooks/isSmallScreen'
+import Hidden from '@material-ui/core/Hidden'
 
-const Directory = ({ allPeople, allDepartments }) => {
-  const smallScreen = isSmallScreen()
-  const content = smallScreen ? (
-    <div>
-      <PeopleGrid />
-    </div>
-  ) : (
-    <div className={style['two-column-grid']}>
-      <div>
-        <TreeView />
-      </div>
-      <div>
-        <PeopleGrid />
-      </div>
-    </div>
-  )
-
+const People = ({ allPeople, allDepartments }) => {
   return (
     <div className="g-container">
       <AppProvider allPeople={allPeople} departments={allDepartments}>
         <Top />
-        {content}
+
+        <div className={style['people-grid']}>
+          <Hidden smDown>
+            <div>
+              <TreeView />
+            </div>
+          </Hidden>
+          <div>
+            <PeopleGrid />
+          </div>
+        </div>
       </AppProvider>
     </div>
   )
@@ -39,5 +33,5 @@ export async function getStaticProps() {
   return { props: data }
 }
 
-Directory.layout = true
-export default Directory
+People.layout = true
+export default People
