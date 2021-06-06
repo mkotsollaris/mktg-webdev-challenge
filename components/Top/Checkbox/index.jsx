@@ -4,7 +4,12 @@ import style from './style.module.css'
 const Checkbox = (props) => {
   return (
     <div className={style['checkbox-main-grid']}>
-      <input className={style['checkbox']} type="checkbox" {...props} />
+      <input
+        role="checkbox"
+        className={style['checkbox']}
+        type="checkbox"
+        {...props}
+      />
     </div>
   )
 }

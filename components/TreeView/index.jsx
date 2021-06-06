@@ -33,7 +33,8 @@ const TreeView = () => {
       </span>
       {filteredDepartments.length === 0 ? null : (
         <span
-          className={`${style['secondary-label']} ${style.clickable}`}
+          role="button"
+          className={`${style['secondary-label']} ${style.clickable} ${style['margin-left-sm']}`}
           onClick={() => setFilteredDepartments([])}
         >
           clear filters
