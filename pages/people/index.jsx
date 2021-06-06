@@ -12,7 +12,6 @@ const People = ({ allPeople, allDepartments }) => {
     <div className="g-container">
       <AppProvider allPeople={allPeople} departments={allDepartments}>
         <Top />
-
         <div className={style['people-grid']}>
           <Hidden smDown>
             <div>
