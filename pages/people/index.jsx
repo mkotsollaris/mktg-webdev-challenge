@@ -1,10 +1,10 @@
-import FilterTree from '../../components/TreeView'
 import AppProvider from '../../context/AppProvider'
 import rivetQuery from '@hashicorp/nextjs-scripts/dato/client'
 import query from './query.graphql'
-import PeopleGrid from '../../components/PeopleGrid'
-import style from '../../components/style.module.css'
 import Top from '../../components/Top'
+import TreeView from '../../components/TreeView'
+import PeopleGrid from '../../components/PeopleGrid'
+import style from './style.module.css'
 
 const Directory = ({ allPeople, allDepartments }) => {
   return (
@@ -13,7 +13,7 @@ const Directory = ({ allPeople, allDepartments }) => {
         <Top />
         <div className={style['two-column-grid']}>
           <div>
-            <FilterTree />
+            <TreeView />
           </div>
           <div>
             <PeopleGrid />

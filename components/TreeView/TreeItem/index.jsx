@@ -2,7 +2,9 @@ import { useContext, useState } from 'react'
 import ExpandIcon from '@material-ui/icons/ChevronRight'
 import CollapseIcon from '@material-ui/icons/ExpandMore'
 import style from './style.module.css'
-import AppContext from '../context/AppContext'
+// Todo consider loading through css?
+import componentsStyle from '../../style.module.css'
+import AppContext from '../../../context/AppContext'
 
 const ExpandIconElement = <ExpandIcon style={{ color: 'gray', fontSize: 20 }} />
 const CollapseIconElement = (
@@ -34,7 +36,7 @@ const TreeItem = ({ label, children }) => {
     : style.treeItem
 
   const element = (
-    <div className={`${style.treeItem} ${style['non-selectable']}`}>
+    <div className={`${style.treeItem} ${componentsStyle['non-selectable']}`}>
       <div
         onClick={onClick}
         className={`${style.expandableTreeItem} ${classNames}`}

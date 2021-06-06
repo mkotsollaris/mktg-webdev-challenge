@@ -1,0 +1,14 @@
+.treeView {
+  width: 15rem;
+  display: grid;
+  grid-row-gap: 0.5rem;
+}
+
+.secondary-label {
+  color: gray;
+  font-size: small;
+}
+
+.clickable {
+  cursor: pointer;
+}

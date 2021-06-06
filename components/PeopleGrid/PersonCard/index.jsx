@@ -1,5 +1,5 @@
 import style from './style.module.css'
-import logo from '../public/img/avatar.svg'
+import logo from '../../../public/img/avatar.svg'
 
 const PersonCard = ({ url, name, title, department }) => {
   return (

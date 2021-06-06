@@ -1,6 +1,8 @@
 import { useContext } from 'react'
-import AppContext from '../context/AppContext'
+import AppContext from '../../context/AppContext'
 import TreeItem from './TreeItem'
+import componentStyle from '../style.module.css'
+
 import style from './style.module.css'
 
 const TreeView = () => {
@@ -26,7 +28,7 @@ const TreeView = () => {
 
   return (
     <div className={style.treeView}>
-      <span className={style.name}>Filter by department</span>
+      <span className={componentStyle.name}>Filter by department</span>
       {filteredDepartments.length === 0 ? null : (
         <span
           className={`${style['secondary-label']} ${style.clickable}`}

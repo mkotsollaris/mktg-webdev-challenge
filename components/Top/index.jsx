@@ -1,8 +1,14 @@
 import Search from './Search'
 import Checkbox from './Checkbox'
 import style from './style.module.css'
+import AppContext from '../../context/AppContext'
+import { useContext } from 'react'
 
 const Top = () => {
+  const {
+    hideWithMissingProfileImg,
+    setHideWithMissingProfileImg,
+  } = useContext(AppContext)
   return (
     <div className={style.top}>
       <h1 className={style['large-span']}>Hashicorp Humans</h1>
@@ -11,8 +17,13 @@ const Top = () => {
       </span>
       <Search />
       <div className={style['checkbox-grid']}>
-        <Checkbox />
-        <span className={style['medium-span']}>
+        <Checkbox
+          checked={hideWithMissingProfileImg}
+          onChange={() =>
+            setHideWithMissingProfileImg(!hideWithMissingProfileImg)
+          }
+        />
+        <span className={style['small-span']}>
           Hide people missing a profile image
         </span>
       </div>
