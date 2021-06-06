@@ -17,24 +17,28 @@ const Top = () => {
 
   const content =
     smallScreen && filteredDepartments.length > 0 ? (
-      <div className={`${style['bottom-grid']} ${style['three-column-grid']} `}>
-        <div>
-          <Checkbox
-            checked={hideWithMissingProfileImg}
-            onChange={() =>
-              setHideWithMissingProfileImg(!hideWithMissingProfileImg)
-            }
-          />
-        </div>
-        <div>
-          <span className={style['small-span']}>
-            Hide people missing a profile image
-          </span>
+      <>
+        <div
+          className={`${style['bottom-grid']} ${style['three-column-grid']} `}
+        >
+          <div>
+            <Checkbox
+              checked={hideWithMissingProfileImg}
+              onChange={() =>
+                setHideWithMissingProfileImg(!hideWithMissingProfileImg)
+              }
+            />
+          </div>
+          <div>
+            <span className={style['small-span']}>
+              Hide people missing a profile image
+            </span>
+          </div>
         </div>
         <div>
           <ClearFilter />
         </div>
-      </div>
+      </>
     ) : (
       <div className={style['bottom-grid']}>
         <Checkbox

@@ -15,7 +15,7 @@
   }
   @media (max-width: 400px) {
     composes: search-grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 10% 90%;
   }
 }
 

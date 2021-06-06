@@ -40,5 +40,5 @@
 }
 
 .three-column-grid {
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 }

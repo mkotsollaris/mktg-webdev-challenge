@@ -6,6 +6,6 @@
 
 .two-column-grid {
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: auto minmax(auto, 85%);
   margin-bottom: 2rem;
 }
