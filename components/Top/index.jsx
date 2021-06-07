@@ -6,7 +6,8 @@ import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
 import ClearFilter from '../ClearFilter'
 import { useMediaQuery } from '@material-ui/core'
-import Checkbox2 from './Checkbox2'
+import Checkbox from './Checkbox'
+
 const Top = () => {
   let isPageSmall = useMediaQuery('(max-width: 960px)')
 
@@ -18,15 +19,12 @@ const Top = () => {
 
   const checkBoxLabel = (
     <label>
-      <Checkbox2
+      <Checkbox
         checked={hideWithMissingProfileImg}
         onChange={() => {
           setHideWithMissingProfileImg(!hideWithMissingProfileImg)
         }}
       />
-      <span className={style['small-span']} style={{ marginLeft: 8 }}>
-        Hide people missing a profile image
-      </span>
     </label>
   )
 
@@ -36,9 +34,7 @@ const Top = () => {
         <div
           className={`${style['bottom-grid']} ${style['three-column-grid']}`}
         >
-          <div
-            className={`${componentStyle.clickable} ${componentStyle['non-selectable']}`}
-          >
+          <div className={`${componentStyle['non-selectable']}`}>
             {checkBoxLabel}
           </div>
         </div>
@@ -48,7 +44,7 @@ const Top = () => {
       </>
     ) : (
       <div
-        className={`${style['bottom-grid']} ${componentStyle.clickable} ${componentStyle['non-selectable']}`}
+        className={`${style['bottom-grid']} ${componentStyle['non-selectable']}`}
       >
         {checkBoxLabel}
       </div>

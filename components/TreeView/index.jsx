@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import AppContext from '../../context/AppContext'
 import TreeItem from './TreeItem'
 import componentStyle from '../style.module.css'
-
 import style from './style.module.css'
 import ClearFilter from '../ClearFilter'
 
