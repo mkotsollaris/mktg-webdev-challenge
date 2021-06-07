@@ -1,14 +1,5 @@
-/* your styles here! */
-
-/* you can use standard css plus anything from postcss-preset-env */
-
-/* ref: https://preset-env.cssdb.org/ */
-
 .people-grid {
   display: grid;
   grid-template-columns: auto minmax(auto, 85%);
   margin-bottom: 2rem;
-  @media (max-width: 960px) {
-    grid-template-columns: 100%;
-  }
 }
