@@ -1,5 +1,4 @@
 import Search from './Search'
-// import Checkbox from './Checkbox'
 import style from './style.module.css'
 import componentStyle from '../style.module.css'
 import AppContext from '../../context/AppContext'
