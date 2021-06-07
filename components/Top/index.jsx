@@ -1,12 +1,12 @@
 import Search from './Search'
-import Checkbox from './Checkbox'
+// import Checkbox from './Checkbox'
 import style from './style.module.css'
 import componentStyle from '../style.module.css'
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
 import ClearFilter from '../ClearFilter'
 import { useMediaQuery } from '@material-ui/core'
-
+import Checkbox2 from './Checkbox2'
 const Top = () => {
   let isPageSmall = useMediaQuery('(max-width: 960px)')
 
@@ -16,6 +16,20 @@ const Top = () => {
     filteredDepartments,
   } = useContext(AppContext)
 
+  const checkBoxLabel = (
+    <label>
+      <Checkbox2
+        checked={hideWithMissingProfileImg}
+        onChange={() => {
+          setHideWithMissingProfileImg(!hideWithMissingProfileImg)
+        }}
+      />
+      <span className={style['small-span']} style={{ marginLeft: 8 }}>
+        Hide people missing a profile image
+      </span>
+    </label>
+  )
+
   const content =
     isPageSmall && filteredDepartments.length > 0 ? (
       <>
@@ -24,16 +38,8 @@ const Top = () => {
         >
           <div
             className={`${componentStyle.clickable} ${componentStyle['non-selectable']}`}
-            onClick={() =>
-              setHideWithMissingProfileImg(!hideWithMissingProfileImg)
-            }
           >
-            <Checkbox checked={hideWithMissingProfileImg} />
-          </div>
-          <div>
-            <span className={style['small-span']}>
-              Hide people missing a profile image
-            </span>
+            {checkBoxLabel}
           </div>
         </div>
         <div>
@@ -43,12 +49,8 @@ const Top = () => {
     ) : (
       <div
         className={`${style['bottom-grid']} ${componentStyle.clickable} ${componentStyle['non-selectable']}`}
-        onClick={() => setHideWithMissingProfileImg(!hideWithMissingProfileImg)}
       >
-        <Checkbox checked={hideWithMissingProfileImg} />
-        <span className={style['small-span']}>
-          Hide people missing a profile image
-        </span>
+        {checkBoxLabel}
       </div>
     )
 

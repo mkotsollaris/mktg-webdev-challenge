@@ -27,11 +27,7 @@ const TreeView = () => {
 
   return (
     <div className={style.treeView}>
-      <span
-        className={`${componentStyle.name} ${componentStyle['margin-left-sm']}`}
-      >
-        Filter by department
-      </span>
+      <span className={`${componentStyle.name}`}>Filter by department</span>
       {filteredDepartments.length === 0 ? null : <ClearFilter />}
       {content}
     </div>

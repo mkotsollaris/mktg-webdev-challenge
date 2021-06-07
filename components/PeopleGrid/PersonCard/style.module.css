@@ -11,15 +11,18 @@
   border: 1px solid lightgray;
   padding: 1rem;
   text-align: center;
+  &:nth-child(1) {
+    max-width: 20rem;
+  }
 
-& .centered {
-  align-self: center;
-  justify-self: center;
-}
+  & .centered {
+    align-self: center;
+    justify-self: center;
+  }
 
-& svg {
-  width: 10rem;
-}
+  & svg {
+    width: 10rem;
+  }
 }
 
 .light {
