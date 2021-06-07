@@ -8,6 +8,7 @@ describe('knuthMorrisPratt', () => {
 
     expect(result).not.toBe(-1)
   })
+
   test('pattern does not exists', () => {
     const text = 'example'
     const word = 'wyz'

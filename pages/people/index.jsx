@@ -10,6 +10,7 @@ import { useMediaQuery } from '@material-ui/core'
 
 const People = ({ allPeople, allDepartments }) => {
   let isSmallScreen = useMediaQuery('(max-width: 1000px)')
+
   const content = isSmallScreen ? (
     <div>
       <PeopleGrid />
