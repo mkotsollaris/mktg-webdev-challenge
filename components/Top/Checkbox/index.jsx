@@ -23,9 +23,6 @@ const Checkbox3 = ({
             onBlur={() => {
               setIsFocused(false)
             }}
-            onClick={() => {
-              setIsFocused(!isFocused)
-            }}
             type="checkbox"
             checked={checked}
             {...props}
