@@ -1,11 +1,11 @@
 import Search from './Search'
-import Checkbox from './Checkbox'
 import style from './style.module.css'
 import componentStyle from '../style.module.css'
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
 import ClearFilter from '../ClearFilter'
 import { useMediaQuery } from '@material-ui/core'
+import Checkbox from './Checkbox'
 
 const Top = () => {
   let isPageSmall = useMediaQuery('(max-width: 960px)')
@@ -16,24 +16,25 @@ const Top = () => {
     filteredDepartments,
   } = useContext(AppContext)
 
+  const checkBoxLabel = (
+    <label>
+      <Checkbox
+        checked={hideWithMissingProfileImg}
+        onChange={() => {
+          setHideWithMissingProfileImg(!hideWithMissingProfileImg)
+        }}
+      />
+    </label>
+  )
+
   const content =
     isPageSmall && filteredDepartments.length > 0 ? (
       <>
         <div
           className={`${style['bottom-grid']} ${style['three-column-grid']}`}
         >
-          <div
-            className={`${componentStyle.clickable} ${componentStyle['non-selectable']}`}
-            onClick={() =>
-              setHideWithMissingProfileImg(!hideWithMissingProfileImg)
-            }
-          >
-            <Checkbox checked={hideWithMissingProfileImg} />
-          </div>
-          <div>
-            <span className={style['small-span']}>
-              Hide people missing a profile image
-            </span>
+          <div className={`${componentStyle['non-selectable']}`}>
+            {checkBoxLabel}
           </div>
         </div>
         <div>
@@ -42,13 +43,9 @@ const Top = () => {
       </>
     ) : (
       <div
-        className={`${style['bottom-grid']} ${componentStyle.clickable} ${componentStyle['non-selectable']}`}
-        onClick={() => setHideWithMissingProfileImg(!hideWithMissingProfileImg)}
+        className={`${style['bottom-grid']} ${componentStyle['non-selectable']}`}
       >
-        <Checkbox checked={hideWithMissingProfileImg} />
-        <span className={style['small-span']}>
-          Hide people missing a profile image
-        </span>
+        {checkBoxLabel}
       </div>
     )
 

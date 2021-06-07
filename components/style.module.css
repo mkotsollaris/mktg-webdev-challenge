@@ -4,6 +4,19 @@
   margin-top: 1rem;
 }
 
+.default-button {
+  background: none;
+  background-color: none;
+  cursor: pointer;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: unset;
+  padding: 0;
+  margin: 0;
+}
+
 .non-selectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

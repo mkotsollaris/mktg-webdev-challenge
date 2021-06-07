@@ -38,9 +38,7 @@ const TreeItem = ({ label, children }) => {
     }
   }
 
-  const Icon = !children ? (
-    <div />
-  ) : isExpanded() ? (
+  const Icon = !children ? null : isExpanded() ? (
     <div>{CollapseIconElement}</div>
   ) : (
     <div>{ExpandIconElement}</div>
@@ -52,15 +50,19 @@ const TreeItem = ({ label, children }) => {
 
   const element = (
     <div className={`${style.treeItem} ${componentsStyle['non-selectable']}`}>
-      <div
-        role="button"
+      <button
+        tabIndex={0}
         onClick={onClick}
         className={`${style.expandableTreeItem} ${classNames} `}
       >
         {Icon}
         {label}
-      </div>
-      {isExpanded() ? <ul className={style.ul}>{children}</ul> : null}
+      </button>
+      {isExpanded() ? (
+        <ul className={style.ul}>
+          <div className={style.children}>{children}</div>
+        </ul>
+      ) : null}
     </div>
   )
   return element

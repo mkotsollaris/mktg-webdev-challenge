@@ -11,15 +11,14 @@
   border: 1px solid lightgray;
   padding: 1rem;
   text-align: center;
-
-& .centered {
-  align-self: center;
-  justify-self: center;
-}
-
-& svg {
-  width: 10rem;
-}
+  max-width: 20rem;
+  & .centered {
+    align-self: center;
+    justify-self: center;
+  }
+  & svg {
+    width: 10rem;
+  }
 }
 
 .light {
