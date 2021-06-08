@@ -16,4 +16,12 @@ The folder structure follows the [Fractal pattern](https://hackernoon.com/fracta
 
 ## State management
 
-[Context API](https://reactjs.org/docs/context.html)
+The [Context API](https://reactjs.org/docs/context.html) is utilized in combination with native React lifecycle methods.
+
+## A11y
+
+Components have been developed to offer accessiblity capacities:
+
+
+https://user-images.githubusercontent.com/8595514/121247542-39a8b600-c857-11eb-900f-d2c61c230eb7.mov
+
