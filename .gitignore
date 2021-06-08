@@ -3,4 +3,7 @@ node_modules
 .next
 out
 .mdx-data
+
+# tests
 __snapshots__
+coverage
