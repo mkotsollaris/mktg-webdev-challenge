@@ -6,7 +6,7 @@ import KMPSearch from '../utils/knuthMorrisPratt'
 const AppProvider = ({ children, allPeople, departments }) => {
   const [expanded, setExpanded] = useState([])
   const [filteredDepartments, setFilteredDepartments] = useState([])
-  const treeNodes = convertInputToArray(departments)
+  const treeNode = convertInputToArray(departments)
   const [people, setPeople] = useState(allPeople)
   const [searchValue, setSearchValue] = useState()
   const [hideWithMissingProfileImg, setHideWithMissingProfileImg] = useState(
@@ -63,13 +63,8 @@ const AppProvider = ({ children, allPeople, departments }) => {
   }
 
   const computeFilteredDepartments = (label) => {
-    let treeItems = []
-    for (let node of treeNodes) {
-      treeItems = dfs(label, node, [])
-      if (treeItems) {
-        break
-      }
-    }
+    const treeItems = dfs(label, treeNode, [])
+
     setFilteredDepartments(treeItems)
     return treeItems
   }
@@ -80,7 +75,7 @@ const AppProvider = ({ children, allPeople, departments }) => {
         searchValue,
         setSearchValue,
         people,
-        treeNodes,
+        treeNode,
         filteredDepartments,
         setFilteredDepartments,
         computeFilteredDepartments,

@@ -4,52 +4,72 @@ class TreeNode {
     this.children = children
     this.attributes = attributes
   }
-}
 
-const sortNodeChildren = (node) => {
-  node.children.sort((a, b) => {
-    a.children.forEach((childNode) => {
-      sortNodeChildren(childNode)
-    })
-    if (b.value < a.value) {
-      return 1
+  getNodeByValue = (value) => {
+    if (this.value === value) {
+      return this
     }
-    return -1
-  })
+    for (let child of this.children) {
+      let foundNode = child.getNodeByValue(value)
+      if (foundNode) {
+        return foundNode
+      }
+    }
+    return undefined
+  }
+
+  // todo put that inside the class
+  // sortNodeChildren() {
+  //   this.children.sort((a, b) => {
+  //     a.children.forEach((childNode) => {
+  //       sortNodeChildren(childNode)
+  //     })
+  //     if (b.value < a.value) {
+  //       return 1
+  //     }
+  //     return -1
+  //   })
+  // }
 }
 
+// TODO break to small chunks
 const convertInputToArray = (departments) => {
-  const map = new Map()
-  const root = []
+  const root = new TreeNode()
+  const remaining = []
 
   departments.forEach((element) => {
     let node = new TreeNode(element.name, [], { id: element.id })
-    if (element.parent) {
-      let parentNode = map.get(element.parent.name)
-      if (parentNode) {
-        parentNode.children.push(node)
-      } else {
-        map.set(element.parent.name, [
-          new TreeNode(element.parent.name, [node], { id: element.parent.id }),
-        ])
-        map.set(element.name, node)
-      }
-    } else {
-      map.set(element.name, node)
-      root.push(node)
+    if (!element.parent) {
+      root.children.push(node)
+      return
     }
+
+    // find parent in the tree
+    let parentNode = root.getNodeByValue(element.parent.name)
+    if (parentNode) {
+      parentNode.children.push(node)
+      return
+    }
+
+    // search in remaining
+    const parentNodeIndex = remaining.findIndex((rNode) =>
+      rNode.getNodeByValue(element.parent.name)
+    )
+    if (parentNodeIndex !== -1) {
+      parentNode = remaining[parentNodeIndex]
+      parentNode.children.push(node)
+      remaining.splice(parentNodeIndex, 1)
+      return
+    }
+
+    parentNode = new TreeNode(element.parent.name, [node], { id: element.id })
+    remaining.push(parentNode)
   })
 
-  // sort by name
-  root.sort((a, b) => {
-    if (b.value < a.value) {
-      return 1
-    }
-    return -1
-  })
-
-  root.forEach((node) => sortNodeChildren(node))
-
+  for (let remNode of remaining) {
+    let wantedNode = root.getNodeByValue(remNode.value)
+    wantedNode.children.push(...remNode.children)
+  }
   return root
 }
 

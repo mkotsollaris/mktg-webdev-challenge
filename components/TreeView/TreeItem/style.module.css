@@ -17,13 +17,15 @@
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
+  width: 100%;
+  text-align: inherit;
   &.selected {
     color: dodgerblue;
   }
 }
 
 .ul {
-  margin-left: 1.2rem;
+  margin-left: 0.2rem;
   padding-inline-start: 1rem;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -32,10 +34,9 @@
   & li {
     list-style: none;
   }
-
-& .children {
-  margin-left: 1rem;
-}
+  & .children {
+    margin-left: 1rem;
+  }
 }
 
 .arrow {

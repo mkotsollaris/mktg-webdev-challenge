@@ -147,5 +147,5 @@ let input = [
 
 test('convertDepartmentsToTreeNode', () => {
   let result = convertInputToArray(input)
-  expect(result.length).toEqual(9)
+  expect(result.children.length).toEqual(9)
 })

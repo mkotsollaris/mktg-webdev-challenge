@@ -6,7 +6,7 @@ import style from './style.module.css'
 import ClearFilter from '../ClearFilter'
 
 const TreeView = () => {
-  const { treeNodes, filteredDepartments } = useContext(AppContext)
+  const { treeNode, filteredDepartments } = useContext(AppContext)
 
   const renderTreeNode = (node) => {
     const hasChildren = node && node.children && node.children.length > 0
@@ -22,7 +22,7 @@ const TreeView = () => {
     return <TreeItem key={node.attributes.id} label={node.value} />
   }
 
-  const content = treeNodes?.map((node) => renderTreeNode(node))
+  const content = treeNode?.children?.map((node) => renderTreeNode(node))
 
   return (
     <div className={style.treeView}>
