@@ -18,22 +18,23 @@ class TreeNode {
     return undefined
   }
 
-  // todo put that inside the class
-  // sortNodeChildren() {
-  //   this.children.sort((a, b) => {
-  //     a.children.forEach((childNode) => {
-  //       sortNodeChildren(childNode)
-  //     })
-  //     if (b.value < a.value) {
-  //       return 1
-  //     }
-  //     return -1
-  //   })
-  // }
+  sortChildren = () => {
+    this.children.sort((a, b) => {
+      a.children.forEach((childNode) => {
+        childNode.sortChildren()
+      })
+      if (b.value < a.value) {
+        return 1
+      }
+      return -1
+    })
+  }
 }
 
-// TODO break to small chunks
-const convertInputToArray = (departments) => {
+/**
+ * Converts input (from GraphQL) to TreeNode.
+ */
+const convertInputToTreeNode = (departments) => {
   const root = new TreeNode()
   const remaining = []
 
@@ -51,7 +52,7 @@ const convertInputToArray = (departments) => {
       return
     }
 
-    // search in remaining
+    // search in remaining array
     const parentNodeIndex = remaining.findIndex((rNode) =>
       rNode.getNodeByValue(element.parent.name)
     )
@@ -62,15 +63,19 @@ const convertInputToArray = (departments) => {
       return
     }
 
+    // add in the remaining array
     parentNode = new TreeNode(element.parent.name, [node], { id: element.id })
     remaining.push(parentNode)
   })
 
+  // add remaining nodes into root
   for (let remNode of remaining) {
     let wantedNode = root.getNodeByValue(remNode.value)
     wantedNode.children.push(...remNode.children)
   }
+
+  root.sortChildren()
   return root
 }
 
-export { convertInputToArray, TreeNode }
+export { convertInputToTreeNode, TreeNode }

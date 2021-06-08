@@ -15,7 +15,7 @@ const CollapseIconElement = (
   />
 )
 
-const TreeItem = ({ label, children }) => {
+const TreeItem = ({ label, children, level }) => {
   const {
     filteredDepartments,
     computeFilteredDepartments,
@@ -38,11 +38,14 @@ const TreeItem = ({ label, children }) => {
     }
   }
 
-  const Icon = !children ? null : isExpanded() ? (
-    <div>{CollapseIconElement}</div>
-  ) : (
-    <div>{ExpandIconElement}</div>
-  )
+  const Icon =
+    !children && level === 1 ? (
+      <div />
+    ) : !children && level > 1 ? null : isExpanded() ? (
+      <div>{CollapseIconElement}</div>
+    ) : (
+      <div>{ExpandIconElement}</div>
+    )
 
   const classNames = filteredDepartments.includes(label)
     ? `${style.treeItem} ${style.selected}`

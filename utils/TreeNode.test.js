@@ -1,4 +1,4 @@
-import { convertInputToArray } from './TreeNode'
+import { convertInputToTreeNode } from './TreeNode'
 
 // taken from the GraphQL query result https://cda-explorer.datocms.com/?apitoken=dc45ff8c8b27dd22a7c24aaaf8aa75&query=query%20%7B%0A%20%20allDepartments%28first%3A%20100%29%20%7B%0A%20%20%20%20name%0A%20%20%20%20parent%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20%0A%20%20allPeople%28first%3A%20100%29%20%7B%0A%20%20%20%20name%0A%20%20%20%20avatar%20%7B%0A%20%20%20%20%20%20url%0A%20%20%20%20%7D%0A%20%20%20%20department%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
 let input = [
@@ -146,6 +146,6 @@ let input = [
 ]
 
 test('convertDepartmentsToTreeNode', () => {
-  let result = convertInputToArray(input)
+  let result = convertInputToTreeNode(input)
   expect(result.children.length).toEqual(9)
 })

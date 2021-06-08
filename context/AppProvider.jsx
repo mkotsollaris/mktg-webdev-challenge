@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { convertInputToArray } from '../utils/TreeNode'
+import { convertInputToTreeNode } from '../utils/TreeNode'
 import AppContext from './AppContext'
 import KMPSearch from '../utils/knuthMorrisPratt'
 
 const AppProvider = ({ children, allPeople, departments }) => {
   const [expanded, setExpanded] = useState([])
   const [filteredDepartments, setFilteredDepartments] = useState([])
-  const treeNode = convertInputToArray(departments)
+  const treeNode = convertInputToTreeNode(departments)
   const [people, setPeople] = useState(allPeople)
   const [searchValue, setSearchValue] = useState()
   const [hideWithMissingProfileImg, setHideWithMissingProfileImg] = useState(

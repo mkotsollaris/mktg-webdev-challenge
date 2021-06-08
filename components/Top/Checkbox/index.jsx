@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import style from './style.module.css'
 
-const Checkbox3 = ({
+const Checkbox = ({
   checked,
   spanText = 'Hide people missing a profile image',
   ...props
 }) => {
-  // const [isChecked, setIsChecked] = useState();
   const [isFocused, setIsFocused] = useState(false)
 
   const classNames = isFocused ? ` ${style['on-focus']}` : null
@@ -35,4 +34,4 @@ const Checkbox3 = ({
   )
 }
 
-export default Checkbox3
+export default Checkbox
