@@ -1,3 +1,5 @@
+# HashiCorp Humans
+
 ## Install Dependencies
 
 `yarn`
