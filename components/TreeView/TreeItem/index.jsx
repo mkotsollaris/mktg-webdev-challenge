@@ -28,9 +28,8 @@ const TreeItem = ({ label, children, level }) => {
   }
 
   const onClick = () => {
-    if (!children) {
-      computeFilteredDepartments(label)
-    }
+    computeFilteredDepartments(label)
+
     if (isExpanded()) {
       setExpanded(expanded.filter((e) => e !== label))
     } else {

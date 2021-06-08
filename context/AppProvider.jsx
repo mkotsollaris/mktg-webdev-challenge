@@ -50,12 +50,12 @@ const AppProvider = ({ children, allPeople, departments }) => {
   }
 
   // DFS to compute the nodes that should be highlighted
-  const dfs = (searchLabel, node, currPath = []) => {
+  const dfs = (searchLabel, node) => {
     if (node.value === searchLabel) {
-      return [...currPath, searchLabel]
+      return [searchLabel]
     }
     for (let child of node.children) {
-      let newCurrPathArr = dfs(searchLabel, child, [...currPath, node.value])
+      let newCurrPathArr = dfs(searchLabel, child)
       if (newCurrPathArr?.includes(searchLabel)) {
         return newCurrPathArr
       }
