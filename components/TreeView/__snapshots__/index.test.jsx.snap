@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div>
+    <span
+      class="undefined"
+    >
+      Filter by department
+    </span>
+    <button
+      class="undefined undefined undefined"
+    >
+      clear filters
+    </button>
+  </div>
+</DocumentFragment>
+`;

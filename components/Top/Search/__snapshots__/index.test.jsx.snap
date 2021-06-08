@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    role="search"
+  >
+    <div>
+      <img
+        alt="search"
+        src="[object Object]"
+      />
+    </div>
+    <div>
+      <input
+        placeholder="Search people by name"
+        type="search"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

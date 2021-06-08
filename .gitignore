@@ -5,5 +5,4 @@ out
 .mdx-data
 
 # tests
-__snapshots__
 coverage
