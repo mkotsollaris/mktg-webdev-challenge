@@ -24,14 +24,14 @@ const TreeItem = ({ label, children, level }) => {
   } = useContext(AppContext)
 
   const isExpanded = () => {
-    return expanded.includes(label)
+    return expanded?.includes(label)
   }
 
   const onClick = () => {
     computeFilteredDepartments(label)
 
     if (isExpanded()) {
-      setExpanded(expanded.filter((e) => e !== label))
+      setExpanded(expanded?.filter((e) => e !== label))
     } else {
       setExpanded([...expanded, label])
     }
@@ -46,7 +46,7 @@ const TreeItem = ({ label, children, level }) => {
       <div>{ExpandIconElement}</div>
     )
 
-  const classNames = filteredDepartments.includes(label)
+  const classNames = filteredDepartments?.includes(label)
     ? `${style.treeItem} ${style.selected}`
     : style.treeItem
 
