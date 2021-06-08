@@ -10,6 +10,8 @@
 
 `yarn test`
 
+Components are tested with [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/).
+
 ## Folder structure
 
 The folder structure follows the [Fractal pattern](https://hackernoon.com/fractal-a-react-app-structure-for-infinite-scale-4dab943092af).
@@ -22,6 +24,4 @@ The [Context API](https://reactjs.org/docs/context.html) is utilized in combinat
 
 Components have been developed to offer accessiblity capacities:
 
-
 https://user-images.githubusercontent.com/8595514/121247542-39a8b600-c857-11eb-900f-d2c61c230eb7.mov
-
