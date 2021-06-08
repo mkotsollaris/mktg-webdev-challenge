@@ -5,7 +5,6 @@ import componentsStyle from '../style.module.css'
 
 const ClearFilter = () => {
   const { setFilteredDepartments } = useContext(AppContext)
-
   return (
     <button
       className={`${style['secondary-label']} ${style.clickable} ${componentsStyle['default-button']}`}

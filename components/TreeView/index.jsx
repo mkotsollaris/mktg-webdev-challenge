@@ -9,10 +9,10 @@ const TreeView = () => {
   const { treeNode, filteredDepartments } = useContext(AppContext)
 
   const renderTreeNode = (node, level = 1) => {
-    const hasChildren = node && node.children && node.children.length > 0
+    const hasChildren = node?.children?.length > 0
 
     if (hasChildren) {
-      const innerEl = node.children.map((child) =>
+      const innerEl = node?.children?.map((child) =>
         renderTreeNode(child, level + 1)
       )
       return (
@@ -27,7 +27,7 @@ const TreeView = () => {
       )
     }
     return (
-      <TreeItem key={node.attributes.id} label={node.value} level={level} />
+      <TreeItem key={node?.attributes?.id} label={node?.value} level={level} />
     )
   }
 
@@ -36,7 +36,7 @@ const TreeView = () => {
   return (
     <div className={style.treeView}>
       <span className={`${componentStyle.name}`}>Filter by department</span>
-      {filteredDepartments.length === 0 ? null : <ClearFilter />}
+      {filteredDepartments?.length === 0 ? null : <ClearFilter />}
       {content}
     </div>
   )

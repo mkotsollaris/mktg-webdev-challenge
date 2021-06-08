@@ -29,10 +29,18 @@
     "@babel/plugin-proposal-optional-chaining": "^7.14.2",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/dom": "^7.31.2",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "add": "^2.0.6",
+    "babel-jest": "^27.0.2",
     "husky": "4.2.5",
     "inquirer": "^7.0.0",
     "jest": "^27.0.4",
-    "prettier": "2.1.0"
+    "jest-dom": "^4.0.0",
+    "jest-svg-transformer": "^1.0.0",
+    "prettier": "2.1.0",
+    "yarn": "^1.22.10"
   },
   "husky": {
     "hooks": {
@@ -42,7 +50,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "test": "jest --watch",
+    "test": "jest",
     "prod": "NODE_ENV=production next build && next start",
     "format": "next-hashicorp format",
     "lint": "next-hashicorp lint",
