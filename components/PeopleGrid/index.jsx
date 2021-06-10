@@ -10,7 +10,7 @@ const PeopleGrid = () => {
     <div className={style.people}>
       {people?.map((person) => (
         <PersonCard
-          key={person.id}
+          key={person?.id}
           url={person?.avatar?.url}
           name={person?.name}
           title={person?.title}
